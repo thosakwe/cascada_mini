@@ -13,42 +13,9 @@
 #include "context.h"
 #include "error.h"
 #include "linked_list.h"
+#include "object.h"
 #include "parse.h"
 #include "scan.h"
-
-struct _cascada_object;
-
-typedef struct _cascada_object *(*CascadaStreamFunction)(struct _cascada *context, void *state);
-
-typedef enum
-{
-    CASCADA_OBJECT_INT,
-    CASCADA_OBJECT_DOUBLE,
-    CASCADA_OBJECT_LIST,
-    CASCADA_OBJECT_STREAM,
-    CASCADA_OBJECT_STRING,
-} cascada_object_type;
-
-typedef struct _cascada_object
-{
-    cascada_object_type type;
-    union
-    {
-        double as_double;
-        int64_t as_int;
-        const char *as_string;
-        union
-        {
-            struct _cascada_object *items;
-            int64_t length;
-        } as_array;
-        union
-        {
-            CascadaStreamFunction function;
-            void *state;
-        } as_stream;
-    };
-} cascada_object_t;
 
 typedef void *(*CascadaAllocator)(size_t size);
 
