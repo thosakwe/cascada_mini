@@ -7,14 +7,17 @@
 #ifndef CASCADA_MINI_OBJECT_H
 #define CASCADA_MINI_OBJECT_H
 
+#include <stdint.h>
+
 struct _casacada_object;
 
 typedef struct _cascada_object *(*CascadaStreamFunction)(struct _cascada *context, void *state);
 
 typedef enum
 {
-    CASCADA_OBJECT_INT,
+    CASCADA_OBJECT_BYTES,
     CASCADA_OBJECT_DOUBLE,
+    CASCADA_OBJECT_INT,
     CASCADA_OBJECT_LIST,
     CASCADA_OBJECT_STREAM,
     CASCADA_OBJECT_STRING,
@@ -33,6 +36,10 @@ typedef struct _cascada_object
             struct _cascada_object *items;
             int64_t length;
         } as_array;
+        union {
+            const uint8_t *data;
+            int64_t length;
+        } as_bytes;
         union
         {
             CascadaStreamFunction function;
