@@ -14,7 +14,7 @@ add_library(${CASCADA_LIBRARY} STATIC
         include/cascada/linked_list.h
         include/cascada/ast.h
         include/cascada/scan.h src/scan.c
-        src/linked_list.c include/cascada/context.h include/cascada/error.h include/cascada/parse.h include/cascada/object.h)
+        src/linked_list.c include/cascada/context.h include/cascada/error.h include/cascada/parse.h include/cascada/object.h src/cascada.c)
 target_include_directories(${CASCADA_LIBRARY} PUBLIC ${CASCADA_INCLUDE_DIR})
 install(TARGETS ${CASCADA_LIBRARY} DESTINATION ${CMAKE_LIBRARY_OUTPUT_DIRECTORY})
 

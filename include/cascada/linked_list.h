@@ -13,13 +13,13 @@
 struct _cascada_linked_list;
 typedef struct _cascada_linked_list cascada_linked_list_t;
 
-cascada_linked_list_t *cascada_linked_list_new(cascada_t *context);
+void cascada_linked_list_new(cascada_t *context, uint64_t leaf_size, cascada_linked_list_t **ptr);
 
-void cascada_linked_list_add(cascada_linked_list_t *list, void *data);
+int cascada_linked_list_add(cascada_linked_list_t *list, void *data);
 
-void cascada_linked_list_get(cascada_linked_list_t *list, void **ptr);
+void cascada_linked_list_get(cascada_linked_list_t *list, uint64_t index, void **ptr);
 
-void cascada_linked_list_length(cascada_linked_list_t *list, int64_t *length);
+void cascada_linked_list_length(cascada_linked_list_t *list, uint64_t *length);
 
 void cascada_linked_list_destroy(cascada_linked_list_t *list);
 

@@ -21,7 +21,7 @@ typedef void *(*CascadaAllocator)(size_t size);
 
 typedef void (*CascadaDeallocator)(void *ptr);
 
-cascada_t *cascada_new(CascadaAllocator allocator, CascadaDeallocator deallocator);
+void cascada_new(CascadaAllocator allocator, CascadaDeallocator deallocator, cascada_t **ptr);
 
 int cascada_allocate(cascada_t *context, size_t size, void **ptr);
 
@@ -34,6 +34,6 @@ void cascada_enter_scope(cascada_t *context);
 void cascada_exit_scope(cascada_t *context);
 
 int cascada_execute(cascada_t *context, cascada_compilation_unit_t *unit, cascada_object_t *result,
-                     cascada_linked_list_t *errors);
+                    cascada_linked_list_t *errors);
 
 #endif //CASCADA_MINI_CASCADA_H

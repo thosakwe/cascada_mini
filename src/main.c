@@ -5,17 +5,21 @@
 // Use of this source code is governed by an
 // MIT-style license that can be found in the LICENSE file.
 #include <cascada/cascada.h>
+#include <stdio.h>
 #include <stdlib.h>
 
 int main(int argc, const char **argv) {
-    cascada_object_t result;
-    const char *text = "foo";
-    cascada_t *ctx = cascada_new(malloc, free);
-    cascada_linked_list_t *errors = cascada_linked_list_new(ctx);
-    cascada_linked_list_t *tokens = cascada_linked_list_new(ctx);
-    cascada_compilation_unit_t *unit;
-    cascada_allocate(ctx, sizeof(cascada_compilation_unit_t), (void **) &unit);
-    cascada_scan(ctx, text, tokens, errors);
-    cascada_parse(ctx, unit, tokens, errors);
-    return cascada_execute(ctx, unit, &result, errors);
+    cascada_t *ctx = NULL;
+    cascada_linked_list_t *list = NULL;
+    cascada_new(malloc, free, &ctx);
+    cascada_linked_list_new(ctx, 255, &list);
+    if (ctx == NULL || list == NULL) return 1;
+
+    uint64_t len = 12345;
+    cascada_linked_list_length(list, &len);
+    int result = cascada_linked_list_add(list, "Hello");
+    printf("Hey: %d\n", result);
+    cascada_linked_list_add(list, "world");
+    printf("Length: %llu\n", len);
+    return 0;
 }
