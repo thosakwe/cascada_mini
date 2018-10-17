@@ -8,10 +8,13 @@ set(CASCADA_LIBRARY cascada CACHE STRING "The Cascada library")
 
 add_library(${CASCADA_LIBRARY} STATIC)
 target_include_directories(${CASCADA_LIBRARY} PUBLIC ${CASCADA_INCLUDE_DIR})
-install(TARGETS ${CASCADA_LIBRARY} DESTINATION lib)
 
-add_executable(${CASCADA_EXECUTABLE} src/main.c)
+add_executable(${CASCADA_EXECUTABLE} src/main.cpp)
 target_include_directories(${CASCADA_EXECUTABLE} PUBLIC ${CASCADA_INCLUDE_DIR})
 target_link_libraries(${CASCADA_EXECUTABLE} ${CASCADA_LIBRARY})
 set_target_properties(${CASCADA_EXECUTABLE} PROPERTIES RUNTIME_OUTPUT_NAME ${CASCADA_LIBRARY})
-install(TARGETS ${CASCADA_EXECUTABLE} bin)
+
+install(TARGETS ${CASCADA_LIBRARY} ${CASCADA_EXECUTABLE}
+        ARCHIVE DESTINATION lib
+        LIBRARY DESTINATION lib
+        RUNTIME DESTINATION bin)
