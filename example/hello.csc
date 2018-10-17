@@ -1,2 +1,3 @@
 def main()
-  print("Hello, Cascada!")
+  let lang = "Cascada"
+  print("Hello, %lang!")
