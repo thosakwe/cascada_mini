@@ -1,2 +1,2 @@
-def main
-    "Hello, world!" | stdout
+def main()
+  print("Hello, Cascada!")
