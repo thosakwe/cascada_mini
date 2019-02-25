@@ -1,2 +1,6 @@
-# Why is `.idea/` included?
-Stop asking this.
+# cascada
+Functional shell scripting language; aims to be a superset of Bash.
+
+## Goals
+* Expressiveness
+* Bash backwards compatibility

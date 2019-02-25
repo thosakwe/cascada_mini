@@ -1,3 +1,4 @@
-def main()
-  let lang = "Cascada"
-  print("Hello, %lang!")
+#!/usr/bin/env cascada
+
+let lang = "Cascada"
+cat "Hello, $lang!"
