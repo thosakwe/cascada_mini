@@ -36,3 +36,5 @@ rule read =
   | '}'  { RBRACE }
   | '!'  { BANG }
   | "in" { IN }
+  | '&' { AND }
+  | ';' { SEMICOLON }
