@@ -1,4 +1,2 @@
-#!/usr/bin/env cascada
-
-let lang = "Cascada"
-cat "Hello, $lang!"
+let lang="cascada";
+echo "Hello, $lang!"
