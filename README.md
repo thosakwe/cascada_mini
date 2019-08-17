@@ -1,6 +1,4 @@
 # cascada
-Functional shell scripting language; aims to be a superset of Bash.
-
-## Goals
-* Expressiveness
-* Bash backwards compatibility
+Not really sure what this is just yet, but it's a
+lightweight, dynamic scripting language, with FP
+inspirations.
