@@ -22,7 +22,7 @@
 %token CASCADA_TOKEN_BOOL "bool literal"
 %token CASCADA_TOKEN_HEX "hex literal"
 %token CASCADA_TOKEN_NUMBER "decimal literal"
-%token CASCADA_TOKEN_DOUBLE_QUOTE "\""
+%token CASCADA_TOKEN_DOUBLE_QUOTE '"'
 %token CASCADA_TOKEN_SINGLE_QUOTE "'"
 %token CASCADA_TOKEN_ID "identifier"
 %token CASCADA_TOKEN_ESCAPED_QUOTE "escaped quote"
