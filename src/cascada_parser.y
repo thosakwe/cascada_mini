@@ -1,3 +1,8 @@
+%{
+extern int yylex();
+extern FILE* yyin;
+%}
+
 %token CASCADA_TOKEN_ARROW "->"
 %token CASCADA_TOKEN_COLON ":"
 %token CASCADA_TOKEN_COMMA ","
