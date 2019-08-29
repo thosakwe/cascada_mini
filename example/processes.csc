@@ -17,7 +17,7 @@ fn unique_extensions =>
     | map(fn s => split(s)[1])
     | concat(",")
 
-fn unique_extension_count => count(unique_extensions())
+fn unique_extension_count -> count(unique_extensions())
 
 var count = unique_extension_count()
 print("There are " + count + "unique extensions.")
