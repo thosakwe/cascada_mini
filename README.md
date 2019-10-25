@@ -5,6 +5,4 @@ inspirations.
 
 ## Goals
 Some goals include:
-* Easy embedding - Cascada is implemented purely in C99,
-with a simple C API, and easy C interop.
-*
+* C API - Allow for a rich, yet not-dog-slow library environment
