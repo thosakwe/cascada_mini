@@ -1,7 +1,7 @@
-#!/usr/bin/env cascada
+#!/usr/bin/env cascada -F
 
-let add_two x =
+func add_two x {
   x + 2
-in
+}
 
 print (add_two 3)

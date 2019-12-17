@@ -1,13 +1,11 @@
-#!/usr/bin/env cascada
+#!/usr/bin/env cascada -F
 
-let unique_extensions () =
-  `find . -type f`
-    | `basename`
-    | distinct
-    | map (fn s -> (split s)[1])  
-    | join ","
-in
+func unique_extensions {
+  ls({recursive: true})
+    |> .extension
+    |> unique
+}
 
-let count = count (unique_extensions) in
+var exts = unique_extensions ()
 
-print "There are ${count} unique extensions."
+print "There are " (count exts)  " unique extensions."

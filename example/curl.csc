@@ -1,10 +1,10 @@
-#!/usr/bin/env cascada
+#!/usr/bin/env cascada -F
 
-open Curl
-open Html
+# Runs `curl`, then prints the HREF of every <a href="..."></a>.
 
-let res = await Curl.get_url "http://example.com" in
-let doc = Html.parse (Curl.response_text res) in
-let title = Html.element_text (Html.querySelector doc "#title") in
-print "Title: ";
-println title
+import Html
+
+var dom = `curl "http://example.com"` |> Html.read
+
+dom.querySelector "a[href]"
+  |> \print "HREF: " @.attributes.href
